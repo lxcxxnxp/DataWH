@@ -1,0 +1,446 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: $font;
+}
+
+//Estilo de botones
+@mixin button($color,$bckColor){
+
+    color: $color;
+    background-color: $bckColor;
+    border: none;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    &:hover{
+        color: $color;
+        background-color: $lightBlue;
+    }
+}
+
+body{
+
+    .navbar{
+        display: flex;
+        align-content: center;
+        background: $black;
+        height: 10vh;
+        border-bottom: solid 6px $lightBlue;
+
+        .burger {
+            display: none;
+            
+            @media screen and (max-width: 1020px) {
+                display: unset;
+                color: white;
+                i{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 40px;
+        }
+        #welcome {
+            color: $yellow;
+            margin-top: 2.5vh;
+        }
+
+        .rigth-nav{
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: 1020px) {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin-top: 10vh;
+                width: 50%;
+                height: 90vh;
+                background-color: $black;
+                border-left: solid 3px $lightBlue ;
+            }
+
+            .nav-ul{
+
+                display: flex;
+                justify-content: space-between;
+                width: 50vw;
+                margin-top: 2.5vh;
+                margin-right:4vw;
+                list-style: none;
+                
+                .linkActive {
+                    color: $yellow;
+                }
+
+                @media screen and (max-width: 1020px) {
+
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    height: 30%;
+                    margin-top: 10vh;
+                    margin-bottom: 10vh;
+                    margin-right:0;
+                    
+                }
+
+                a{
+                    text-decoration: none;
+                    color: white;
+
+                    &:hover{
+                        color: $yellow;
+                        transition: 0.25s ease-in;
+                    }
+                }
+            }
+
+            .btn{
+                @include button($yellow,$black);
+                text-transform: none;
+                border: solid 1px $yellow;
+            }
+        }
+    }
+
+    .first{
+        background-color: $yellow;
+        height: 90vh;
+
+        .fa-arrow-down{
+            font-size: 40px;
+            color: $lightBlue;
+            transform: translate(10px,-40px);
+            animation: pulse-arrow 2s infinite;
+            &:hover{
+                color: $black;
+            }
+            @keyframes pulse-arrow {
+                0% {
+                  transform: translate(10px,-40px) scale(0.75);
+                }
+                
+                70% {
+                  transform: translate(10px,-40px) scale(1.15);
+                }
+                
+                100% {
+                  transform: translate(10px,-40px) scale(0.75);
+                }
+            }
+        }
+
+        .users-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 85vh;
+            padding-top: 3vh;
+            .title-lista{
+                margin-bottom: 25px;
+                color: $black;
+            }
+            .fa-rainbow {
+                color: $black;
+                font-size: 40px;
+            }
+            .table-fields {
+                display: grid;
+                grid-template-columns: .8fr .8fr 1.6fr .6fr 1fr;
+                grid-auto-rows: 40px;
+                width: 75vw;
+                background-color: $lightBlue;
+                color: white;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                border: solid 4px  $black;
+                border-bottom: solid 1px $black;
+                
+                .field{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            .users-table{
+                padding: 3px 3px 10px 3px ;
+                border: solid 4px $black;
+                border-top: solid 1px $black;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                background-color: white;
+                width: 75vw;
+                max-height: 60vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+                scroll-padding: 50px 0 0 50px;
+
+                &::-webkit-scrollbar{
+                    width: 7px;
+                }
+                &::-webkit-scrollbar-thumb {
+
+                    background-color: $lightBlue;
+                    border-radius: 3px;
+                }
+
+                .user-row{
+                    display: grid;
+                    grid-template-columns: .8fr .8fr 1.6fr .6fr 1fr;
+                    grid-auto-rows: 40px;
+                    width: 75vw;
+                    background-color: white;
+                    border-bottom: 1px solid rgb(196, 192, 192);
+                    border-radius: unset;
+                    margin-left: -5px;
+
+                    &:hover{
+                        background-color: $yellow;
+                        cursor: pointer;
+                    }
+                
+                    .user-info {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        
+                    }
+                    .user-edit {
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+
+                        i{
+                            font-size: 24px;
+                            color: $black;
+                            &:hover{
+                                color: white;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #deleteModal{
+
+            .modal-header {
+                background-color: $yellow;
+                color: $black;
+            }
+            .modal-footer {
+                .btn-secondary{
+                    @include button($black,$yellow);
+                    border: solid 1px $black;
+                    text-transform: none;
+                    &:hover{
+                        color: white;
+                        background-color: $black;
+                    }
+                }
+                .btn-primary{
+                    @include button($black,rgb(255, 111, 0));
+                    color: white;
+                    border: solid 1px $black;
+                    text-transform: none;
+                    &:hover{
+                        color: white;
+                        background-color: red;
+                    }
+                }
+            }
+        }
+        #updateModal{
+            @extend #deleteModal;
+             
+            .modal-body{
+                input, select {
+                    border: solid 1.5px $lightBlue;
+                    color: $black;
+                }
+            }
+            .modal-footer{
+                background-color: $yellow;
+                .btn-primary{
+                    background-color: $black;
+                    color: white;
+                }
+            }
+
+        }
+
+    }
+    
+    .second{
+        background-color: $lightBlue;
+        border-top: solid 6px $black;
+        height: 100vh;
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3vh;
+            border: solid 5px $black;
+            border-radius: 10px;
+            background-color: white;
+            width: 35vw;
+            height: auto;
+            margin-top: 25px;
+            margin-bottom: 15px;
+    
+            a{
+                font-weight: 500;
+                margin-top: 20px;
+                color: $black;
+            }
+        
+            .errorsContainer{
+                display:flex;
+                justify-content: center;
+                
+                small{
+                    color:red;
+                    font-weight: 700;
+                }
+            }
+            h1{
+                font-weight: 500;
+            }
+            .fa-rainbow{
+                font-size: 40px;
+            }
+            .loginForm{
+                display: flex;
+                flex-direction: column;
+                width: 95%;
+    
+                label{
+                    font-weight: 500;
+                    color: $black;
+                }
+                input {
+                    border: solid 2px $lightBlue;
+                    color: $black;
+                }
+                select {
+                    border: solid 2px $lightBlue;
+                    color: $black;
+                }
+    
+                .text-muted {
+                    display: none;
+                }
+                .password-visibility {
+                    display: flex;
+    
+                    .fa-eye-slash{
+                        margin: 10px 0 0 -30px;
+                        color: $black;
+                        cursor: pointer;
+                    }
+                    .fa-eye{
+                        margin: 10px 0 0 -30px;
+                        color: $black;
+                        cursor: pointer;
+                    }
+                }
+                .btn {
+                    @include button(white,$black);
+                    width: 30vw;
+                    height: 3.5vw;
+                    margin-top: 10px;
+                    
+                }
+            }
+
+        }
+        .alert {
+            padding: 20px;
+            background-color: $yellow;
+            color: $black;
+            width: 22vw;
+            margin-top: 10vh;
+            margin-left: 2vw;
+            display: block;
+            position: absolute;
+    
+            
+            .closebtn {
+                margin-left: 15px;
+                color: $black;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            .closebtn:hover {
+                color: $black;
+            }
+        }
+        .center-alert{
+    
+            display: flex;
+            justify-content: center;
+    
+            .alertCreation {
+                @extend .alert;
+                font-size: 24px;
+                background-color: green;
+                width: 22vw;
+                height: 35vh;
+                display: none;//Cambiado desde JS a display: block;
+                position: absolute;
+                top: 10vh;
+                right: 2vw;
+                z-index: 1;
+                text-align: center;
+            }
+        }
+
+        .fa-arrow-up:nth-child(1){
+            font-size: 40px;
+            color: white;
+            transform: translate(10px,30px);
+            animation: pulse-arrow-up 2s infinite;
+            &:hover{
+                color: $black;
+            }
+            @keyframes pulse-arrow-up {
+                0% {
+                  transform: translate(10px,30px) scale(0.75);
+                }
+                
+                70% {
+                  transform: translate(10px,30px) scale(1.15);
+                }
+                
+                100% {
+                  transform: translate(10px,30px) scale(0.75);
+                }
+            }
+        }
+       
+
+
+    }
+
+
+
+
+
+
+
+
+
+}

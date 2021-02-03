@@ -1,0 +1,445 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+}
+
+body .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background: #111010;
+  height: 10vh;
+  border-bottom: solid 6px #247BA0;
+}
+
+body .navbar .burger {
+  display: none;
+}
+
+@media screen and (max-width: 1020px) {
+  body .navbar .burger {
+    display: unset;
+    color: white;
+  }
+  body .navbar .burger i {
+    cursor: pointer;
+  }
+}
+
+body .navbar .navbar-brand {
+  color: white;
+  font-size: 40px;
+}
+
+body .navbar #welcome {
+  color: #C2E812;
+  margin-top: 2.5vh;
+}
+
+body .navbar .rigth-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 1020px) {
+  body .navbar .rigth-nav {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 10vh;
+    width: 50%;
+    height: 90vh;
+    background-color: #111010;
+    border-left: solid 3px #247BA0;
+  }
+}
+
+body .navbar .rigth-nav .nav-ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50vw;
+  margin-top: 2.5vh;
+  margin-right: 4vw;
+  list-style: none;
+}
+
+body .navbar .rigth-nav .nav-ul .linkActive {
+  color: #C2E812;
+}
+
+@media screen and (max-width: 1020px) {
+  body .navbar .rigth-nav .nav-ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    height: 30%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-right: 0;
+  }
+}
+
+body .navbar .rigth-nav .nav-ul a {
+  text-decoration: none;
+  color: white;
+}
+
+body .navbar .rigth-nav .nav-ul a:hover {
+  color: #C2E812;
+  -webkit-transition: 0.25s ease-in;
+  transition: 0.25s ease-in;
+}
+
+body .navbar .rigth-nav .btn {
+  color: #C2E812;
+  background-color: #111010;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-transform: none;
+  border: solid 1px #C2E812;
+}
+
+body .navbar .rigth-nav .btn:hover {
+  color: #C2E812;
+  background-color: #247BA0;
+}
+
+body main {
+  background-color: #C2E812;
+  min-height: 90vh;
+}
+
+body main .tree-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 auto;
+  padding-top: 2vh;
+  height: auto;
+}
+
+body main .tree-container .info-tree {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .tree-container .info-tree .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-items: space-around;
+  margin-left: 2.5vw;
+  width: 30%;
+}
+
+body main .tree-container .info-tree .form-group input {
+  border: solid 2px #247BA0;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+body main .tree-container .info-tree .form-group .btn-primary {
+  color: white;
+  background-color: #111010;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+body main .tree-container .info-tree .form-group .btn-primary:hover {
+  color: white;
+  background-color: #247BA0;
+}
+
+body main .tree-container .info-tree .info {
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+}
+
+body main .tree-container .info-tree .info p {
+  font-weight: 400;
+  color: white;
+  background-color: #247BA0;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+body main .tree-container .big-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 2.5vw;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 95%;
+  background-color: #111010;
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 68vh;
+  max-height: 68vh;
+  overflow-y: auto;
+  overflow-x: auto;
+  scroll-padding: 50px 0 0 50px;
+}
+
+body main .tree-container .big-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+body main .tree-container .big-container::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+body main .tree-container .big-container::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #247BA0;
+}
+
+body main .tree-container .big-container::-webkit-scrollbar-corner {
+  background-color: #111010;
+  border-radius: 5px;
+}
+
+body main .tree-container .big-container .hidden {
+  display: none;
+}
+
+body main .tree-container .big-container .fall {
+  -webkit-transform: translateY(8rem) rotateZ(20deg);
+          transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+body main .tree-container .big-container .ul-region {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  min-width: 22vw;
+  border-radius: 5px;
+  -webkit-transition: all 1.2s ease;
+  transition: all 1.2s ease;
+}
+
+body main .tree-container .big-container .ul-region .region-div, body main .tree-container .big-container .ul-region .ul-country .country-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+body main .tree-container .big-container .ul-region .region-div i, body main .tree-container .big-container .ul-region .ul-country .country-div i {
+  color: white;
+  margin: 8px;
+  cursor: pointer;
+}
+
+body main .tree-container .big-container .ul-region .region-div i:hover, body main .tree-container .big-container .ul-region .ul-country .country-div i:hover {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+}
+
+body main .tree-container .big-container .ul-region p {
+  background-color: #C2E812;
+  cursor: pointer;
+  margin: 10px;
+  padding: .5px 10px;
+  border-radius: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 175px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body main .tree-container .big-container .ul-region p:hover {
+  white-space: unset;
+}
+
+body main .tree-container .big-container .ul-region .ul-country {
+  color: #111010;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+body main .tree-container .big-container .ul-region .ul-country p {
+  background-color: #247BA0;
+  color: white;
+  padding: .5px 10px;
+  margin-left: 40px;
+  border-radius: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+
+body main .tree-container .big-container .ul-region .ul-country .li-city {
+  background-color: white;
+  color: #111010;
+  list-style: none;
+  padding: .5px 10px;
+  margin: 10px 0px 5px 70px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  max-width: 15vw;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+
+body main .tree-container .big-container .ul-region .ul-country .li-city:hover {
+  white-space: unset;
+  text-overflow: unset;
+  overflow-x: hidden;
+}
+
+body main .tree-container .big-container .ul-region .ul-country .li-city i {
+  margin-left: 15px;
+}
+
+body main .tree-container .big-container .ul-region .ul-country .li-city i:hover {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+}
+
+body main .tree-container .big-container .ul-region .ul-country .li-city i:nth-child(2) {
+  color: #247BA0;
+}
+
+body main .tree-container .big-container .ul-region .ul-country .li-city i:nth-child(3) {
+  color: #247BA0;
+}
+
+body main .tree-container .tree-alert {
+  position: absolute;
+  top: 12vh;
+  left: 0vw;
+  height: auto;
+  padding: 20px;
+  background-color: #a30808;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body main #deleteModal .modal-header, body main #updateModal .modal-header, body main #createModal .modal-header {
+  background-color: #C2E812;
+  color: #111010;
+}
+
+body main #deleteModal .modal-body input, body main #updateModal .modal-body input, body main #createModal .modal-body input {
+  outline: none;
+  border: solid 2px #247BA0;
+  border-radius: 5px;
+  padding: 5px;
+  width: 60%;
+}
+
+body main #deleteModal .modal-footer, body main #updateModal .modal-footer, body main #createModal .modal-footer {
+  background-color: #C2E812;
+}
+
+body main #deleteModal .modal-footer .btn-primary, body main #updateModal .modal-footer .btn-primary, body main #createModal .modal-footer .btn-primary {
+  color: #111010;
+  background-color: #ff6f00;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+  border: solid 1px #111010;
+  text-transform: none;
+}
+
+body main #deleteModal .modal-footer .btn-primary:hover, body main #updateModal .modal-footer .btn-primary:hover, body main #createModal .modal-footer .btn-primary:hover {
+  color: #111010;
+  background-color: #247BA0;
+}
+
+body main #deleteModal .modal-footer .btn-primary:hover, body main #updateModal .modal-footer .btn-primary:hover, body main #createModal .modal-footer .btn-primary:hover {
+  color: white;
+  background-color: red;
+}
+
+body main #deleteModal .modal-footer .btn-secondary, body main #updateModal .modal-footer .btn-secondary, body main #createModal .modal-footer .btn-secondary {
+  color: #111010;
+  background-color: #C2E812;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: solid 1px #111010;
+  text-transform: none;
+}
+
+body main #deleteModal .modal-footer .btn-secondary:hover, body main #updateModal .modal-footer .btn-secondary:hover, body main #createModal .modal-footer .btn-secondary:hover {
+  color: #111010;
+  background-color: #247BA0;
+}
+
+body main #deleteModal .modal-footer .btn-secondary:hover, body main #updateModal .modal-footer .btn-secondary:hover, body main #createModal .modal-footer .btn-secondary:hover {
+  color: white;
+  background-color: #111010;
+}
+/*# sourceMappingURL=regiones.css.map */

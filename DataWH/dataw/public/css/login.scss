@@ -1,0 +1,118 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: $font;
+}
+
+//Estilo de botones
+@mixin button($color,$bckColor){
+
+    color: $color;
+    background-color: $bckColor;
+    border: none;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    &:hover{
+        color: $color;
+        background-color: $lightBlue;
+    }
+}
+
+
+
+body {
+    background-color: $yellow;
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $black;
+        height: 10vh;
+        border-bottom: solid 6px $lightBlue;
+        padding-top: 0;
+
+        h1{
+            color: white;
+            letter-spacing: 3px;
+            font-size: 50px;
+        }
+        .typed-cursor{
+            margin-top: -15px;
+            font-size: 50px;
+            color: white;
+            opacity: 1;
+            animation: blink 1.3s infinite;
+            @keyframes blink{
+                0% { opacity:1; }
+                50% { opacity:0; }
+                100% { opacity:1; }
+            }
+        }
+    }
+
+    .container{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        padding: 3vh;
+        border: solid 5px $black;
+        border-radius: 10px;
+        background-color: white;
+        width: 30vw;
+        height: auto;
+        margin-top: 60px;
+
+        a{
+            font-weight: 500;
+            margin-top: 20px;
+            color: $black;
+        }
+    
+        .errorsContainer{
+            display:flex;
+            justify-content: center;
+            
+            small{
+                color:red;
+                font-weight: 700;
+            }
+        }
+        h1{
+            font-weight: 500;
+        }
+        .fa-rainbow{
+            font-size: 40px;
+        }
+        .loginForm{
+            width: 80%;
+            margin-top: 10px;
+
+            label{
+                font-weight: 500;
+                color: $black;
+            }
+            input {
+                border: solid 2px $lightBlue;
+            }
+            .text-muted {
+                display: none;
+            }
+
+            .btn {
+                @include button(white,$black);
+                width: 100%;
+                display: block;
+                margin: auto;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                
+            }
+        }
+    }
+}
+

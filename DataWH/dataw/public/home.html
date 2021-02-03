@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!--Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css" type="text/css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="./home.html">
+            <i class="fas fa-rainbow"></i>
+        </a>
+        <p id="welcome"></p>
+        <div class="burger">
+            <input type="checkbox" id="check" hidden>
+            <label for="check" >
+                <i class="fas fa-bars" id="burger"></i>
+            </label>
+        </div>
+        <div class="rigth-nav" id="rigth-nav">
+            <ul class="nav-ul" id="ul">
+                <li class="nav-li">
+                    <a href="./contactos.html">Contactos</a>
+                </li>
+                <li class="nav-li" id="usuariosLi">
+                    <a href="./usuarios.html">Usuarios</a>
+                </li>
+                <li class="nav-li">
+                    <a href="./companias.html">Compañías</a>
+                </li>
+                <li class="nav-li">
+                    <a href="./regiones.html">Región/Ciudad</a>
+                </li>
+            </ul>
+            <div>
+                <button class="btn btn-primary" type="submit" id="logOut">Sign out</button>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="container">
+            <div class="informacion">
+                <ul>
+                    <li>Herramienta que permita a una compañía de Marketing administrar todos los contactos de sus clientes para sus campañas.</li>
+                    <li>Permite realizar operaciones CRUD a una base de datos de contactos que incluyen sus datos personales, sus preferencias, datos de contacto, lugar donde trabajan, y lugar donde viven.</li>
+                    <ul>
+                        <br>
+                        <h4 class="underlined">Sección Contactos</h4>
+                        <li>
+                            La sección mas importante! Nos permite detallar todos nuestros contactos.<br>
+                            Se podrá crear, editar y eliminar cualquier contacto y también así buscar por
+                             nombre, región, compañía, interés, etc.
+                        </li>
+                        <br>
+                        <h4 class="underlined">Sección Usuarios</h4>
+                        <li>
+                            Aquí se crearan los usuarios (empleados de la compañía) que podran utilizar la app.
+                        </li>
+                        <br>
+                        <h4 class="underlined">Sección Compañías</h4>
+                        <li>
+                            Todas las compañias para las cuales trabajan nuestros contactos<br>
+                            También se podran listar,crear, editar y eliminar cualquier compañía desde aquí.
+                        </li>
+                        <br>
+                        <h4 class="underlined">Sección Región/Ciudad</h4>
+                        <li>
+                            En esta seccion se despliega un árbol de Regiones, Países y Ciudades.<br>
+                            Permite listar, crear, editar y eliminar cualquiera de las ramas del árbol.
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+<!--Script para asegurar que el usuario esta logueado-->
+<script src="./scripts/home.js" type="module"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>      
+</body>
+</html>

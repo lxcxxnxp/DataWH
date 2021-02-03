@@ -1,0 +1,355 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: $font;
+}
+
+//Estilo de botones
+@mixin button($color,$bckColor){
+
+    color: $color;
+    background-color: $bckColor;
+    border: none;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    &:hover{
+        color: $color;
+        background-color: $lightBlue;
+    }
+}
+
+body{
+
+    .navbar{
+        display: flex;
+        align-content: center;
+        background: $black;
+        height: 10vh;
+        border-bottom: solid 6px $lightBlue;
+
+        .burger {
+            display: none;
+            
+            @media screen and (max-width: 1020px) {
+                display: unset;
+                color: white;
+                i{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 40px;
+        }
+        #welcome {
+            color: $yellow;
+            margin-top: 2.5vh;
+        }
+
+        .rigth-nav{
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: 1020px) {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin-top: 10vh;
+                width: 50%;
+                height: 90vh;
+                background-color: $black;
+                border-left: solid 3px $lightBlue ;
+            }
+
+            .nav-ul{
+
+                display: flex;
+                justify-content: space-between;
+                width: 50vw;
+                margin-top: 2.5vh;
+                margin-right:4vw;
+                list-style: none;
+
+                .linkActive{
+                    color: $yellow;
+                }
+
+                @media screen and (max-width: 1020px) {
+
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    height: 30%;
+                    margin-top: 10vh;
+                    margin-bottom: 10vh;
+                    margin-right:0;
+                    
+                }
+
+                a{
+                    text-decoration: none;
+                    color: white;
+
+                    &:hover{
+                        color: $yellow;
+                        transition: 0.25s ease-in;
+                    }
+                }
+            }
+
+            .btn{
+                @include button($yellow,$black);
+                text-transform: none;
+                border: solid 1px $yellow;
+            }
+        }
+    }
+
+    main {
+        background-color: $yellow;
+        min-height: 90vh;
+
+        .tree-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin: 0 auto;
+            padding-top: 2vh;
+            height: auto;
+
+            .info-tree{
+                display: flex;
+                align-items: center;
+
+                .form-group{
+                    display: flex;
+                    flex-direction: column;
+                    justify-items: space-around;
+                    margin-left: 2.5vw;
+                    width: 30%;
+
+
+                    input{
+                        border: solid 2px $lightBlue;
+                        border-radius: 5px;
+                        margin-bottom: 15px;
+                    }
+                    .btn-primary{
+                        @include button(white,$black);
+                    }
+                }
+                .info{
+                    margin-left: 2.5vw;
+                    margin-right: 2.5vw;
+
+                    p{
+
+                        font-weight: 400;
+                        color: white;
+                        background-color: $lightBlue;
+                        border-radius: 5px;
+                        padding: 10px;
+                        font-size: 12px;
+
+                    }
+                }
+            }
+
+            .big-container{
+                display: flex;
+                margin-left: 2.5vw;
+                align-items: flex-start;
+                width: 95%;
+                background-color: $black;
+                border-radius: 5px;
+                padding: 10px;
+                min-height: 68vh;
+                max-height: 68vh;
+                overflow-y: auto;
+                overflow-x: auto;
+                scroll-padding: 50px 0 0 50px;
+
+                &::-webkit-scrollbar{
+                    width: 10px;
+                }
+                &::-webkit-scrollbar:horizontal{
+                    height: 10px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 3px;
+                    background-color: $lightBlue;
+                }
+                &::-webkit-scrollbar-corner {
+                    background-color: $black;
+                    border-radius: 5px;
+                }
+
+                
+                .hidden{
+                    display: none;
+                }
+                .fall {
+                    transform: translateY(8rem) rotateZ(20deg);
+                    opacity: 0;
+                }
+                .ul-region{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    min-width: 22vw;
+                    border-radius: 5px;
+                    transition: all 1.2s ease;
+
+                    .region-div{
+                        display: flex;
+                        align-items: center;
+                        height: fit-content;
+                        width: fit-content;
+
+                        i { 
+                            color: white;
+                            margin: 8px;
+                            cursor: pointer;
+                            &:hover{
+                                transform: scale(1.4);
+                            }
+                        }
+                    }
+
+                    p{  
+                        background-color: $yellow;
+                        cursor: pointer;
+                        margin: 10px;
+                        padding: .5px 10px;
+                        border-radius: 5px;
+                        width: fit-content;
+                        max-width: 175px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis; 
+
+                        &:hover{
+                            white-space: unset;
+                        }
+                    }
+
+                    .ul-country{
+                        
+                        color: $black;
+                        text-align: center;
+                        border-radius: 5px;
+                        transition: all 0.7s ease;
+                        
+                        .country-div{
+                            @extend .region-div;
+                        }
+
+                        p{
+                            background-color: $lightBlue;
+                            color: white;
+                            padding: .5px 10px;
+                            margin-left: 40px;
+                            border-radius: 5px;
+                            width: fit-content;
+                            cursor: pointer;
+                            
+                        }
+
+                        .li-city{
+                            background-color: white;
+                            color: $black;
+                            list-style: none;
+                            padding: .5px 10px;
+                            margin: 10px 0px 5px 70px;
+                            width: fit-content;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            transition: all 0.7s ease;
+                            max-width:15vw;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow-x: hidden;
+
+                            &:hover {
+                                white-space: unset;
+                                text-overflow: unset;
+                                overflow-x: hidden;
+     
+                            }
+                            
+                            i{
+                                margin-left: 15px;
+                                &:hover{
+                                    transform: scale(1.4);
+                                }
+                                &:nth-child(2){
+                                    color: $lightBlue;
+                                }
+                                &:nth-child(3){
+                                    color: $lightBlue;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            .tree-alert {
+                position: absolute;
+                top: 12vh;
+                left: 0vw;
+                height: auto;
+                padding: 20px;
+                background-color: rgb(163, 8, 8);
+                color: white;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+        }
+        #deleteModal, #updateModal, #createModal{
+
+            .modal-header {
+                background-color: $yellow;
+                color: $black;
+            }
+            .modal-body{
+                input{
+                    outline: none;
+                    border: solid 2px $lightBlue;
+                    border-radius: 5px;
+                    padding: 5px;
+                    width: 60%;
+                }
+            }
+            .modal-footer {
+                background-color: $yellow;
+                .btn-primary{
+                    @include button($black,rgb(255, 111, 0));
+                    color: white;
+                    border: solid 1px $black;
+                    text-transform: none;
+                    &:hover{
+                        color: white;
+                        background-color: red;
+                    }
+                }
+                .btn-secondary{
+                    @include button($black,$yellow);
+                    border: solid 1px $black;
+                    text-transform: none;
+                    &:hover{
+                        color: white;
+                        background-color: $black;
+                    }
+                }
+            }
+        }
+    }
+}    

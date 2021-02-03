@@ -1,0 +1,743 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+}
+
+body .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background: #111010;
+  height: 10vh;
+  border-bottom: solid 6px #247BA0;
+}
+
+body .navbar .burger {
+  display: none;
+}
+
+@media screen and (max-width: 1020px) {
+  body .navbar .burger {
+    display: unset;
+    color: white;
+  }
+  body .navbar .burger i {
+    cursor: pointer;
+  }
+}
+
+body .navbar .navbar-brand {
+  color: white;
+  font-size: 40px;
+}
+
+body .navbar #welcome {
+  color: #C2E812;
+  margin-top: 2.5vh;
+}
+
+body .navbar .rigth-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 1020px) {
+  body .navbar .rigth-nav {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 10vh;
+    width: 50%;
+    height: 90vh;
+    background-color: #111010;
+    border-left: solid 3px #247BA0;
+  }
+}
+
+body .navbar .rigth-nav .nav-ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50vw;
+  margin-top: 2.5vh;
+  margin-right: 4vw;
+  list-style: none;
+}
+
+body .navbar .rigth-nav .nav-ul .linkActive {
+  color: #C2E812;
+}
+
+@media screen and (max-width: 1020px) {
+  body .navbar .rigth-nav .nav-ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    height: 30%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-right: 0;
+  }
+}
+
+body .navbar .rigth-nav .nav-ul a {
+  text-decoration: none;
+  color: white;
+}
+
+body .navbar .rigth-nav .nav-ul a:hover {
+  color: #C2E812;
+  -webkit-transition: 0.25s ease-in;
+  transition: 0.25s ease-in;
+}
+
+body .navbar .rigth-nav .btn {
+  color: #C2E812;
+  background-color: #111010;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-transform: none;
+  border: solid 1px #C2E812;
+}
+
+body .navbar .rigth-nav .btn:hover {
+  color: #C2E812;
+  background-color: #247BA0;
+}
+
+body main {
+  background-color: #C2E812;
+  height: 90vh;
+  padding-top: 25px;
+}
+
+body main .find-create {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  width: 95vw;
+}
+
+body main .find-create .input-group {
+  width: 30vw;
+}
+
+body main .find-create .input-group input {
+  border: solid 2px #111010;
+}
+
+body main .find-create .input-group input:focus {
+  border: solid 2px #247BA0;
+}
+
+body main .find-create .input-group button {
+  background-color: #111010;
+  border: solid 2px #111010;
+  border-left: none;
+  height: 38px;
+}
+
+body main .find-create .input-group button:hover {
+  background-color: #247BA0;
+  border: solid 2px #247BA0;
+}
+
+body main .find-create .input-group button .fa-search {
+  color: white;
+}
+
+body main .find-create #createContact {
+  color: white;
+  background-color: #111010;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  width: 30vw;
+  height: 40px;
+  text-transform: none;
+}
+
+body main .find-create #createContact:hover {
+  color: white;
+  background-color: #247BA0;
+}
+
+body main .find-create #deleteContacts {
+  color: white;
+  background-color: #111010;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  width: 30vw;
+  height: 40px;
+  text-transform: none;
+}
+
+body main .find-create #deleteContacts:hover {
+  color: white;
+  background-color: #247BA0;
+}
+
+body main .find-create #deleteContacts:hover {
+  background-color: #ff8401;
+}
+
+body main .contacts-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80vh;
+  padding-top: 3vh;
+}
+
+body main .contacts-container .table-fields {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35px (1fr)[7];
+      grid-template-columns: 35px repeat(7, 1fr);
+  grid-auto-rows: 40px;
+  width: 95vw;
+  background-color: #247BA0;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: solid 4px #111010;
+  border-bottom: solid 1px #111010;
+}
+
+body main .contacts-container .table-fields .field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: default;
+}
+
+body main .contacts-container .table-fields .field input[type=checkbox] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+body main .contacts-container .table-fields .field .fa-sync-alt, body main .contacts-container .table-fields .field .fa-sort {
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+body main .contacts-container .table-fields .field .fa-sync-alt:hover, body main .contacts-container .table-fields .field .fa-sort:hover {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+}
+
+body main .contacts-container .contacts-table {
+  padding: 3px 3px 10px 3px;
+  border: solid 4px #111010;
+  border-top: solid 1px #111010;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: white;
+  width: 95vw;
+  max-height: 67vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-padding: 50px 0 0 50px;
+}
+
+body main .contacts-container .contacts-table::-webkit-scrollbar {
+  width: 7px;
+}
+
+body main .contacts-container .contacts-table::-webkit-scrollbar-thumb {
+  background-color: #247BA0;
+  border-radius: 3px;
+}
+
+body main .contacts-container .contacts-table .contact-row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35px (1fr)[7];
+      grid-template-columns: 35px repeat(7, 1fr);
+  grid-auto-rows: auto;
+  min-height: 50px;
+  width: 95vw;
+  background-color: white;
+  border-bottom: 1px solid #c4c0c0;
+  border-radius: unset;
+  margin-left: -5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+body main .contacts-container .contacts-table .contact-row:hover {
+  background-color: #C2E812;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-checkbox {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: default;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(2), body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin: 0;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(2) p, body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(3) p {
+  margin: 0;
+  max-width: 175px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(2) small, body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(3) small {
+  max-width: 175px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(3) small:nth-child(1) {
+  display: none;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(3):hover small {
+  -webkit-transform: none;
+          transform: none;
+  display: unset;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(6) {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info:nth-child(6) .channel {
+  background-color: lightblue;
+  color: #247BA0;
+  padding: 1px 3px;
+  border-radius: 3px;
+  margin: 2px;
+  cursor: pointer;
+  min-width: 5vw;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  text-align: center;
+  font-size: 10px;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info .progress {
+  width: 120px;
+  height: 13.5px;
+  border-radius: 10px;
+  background-color: #d5d0d0;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-info .progress .progress-bar {
+  border-radius: 10px;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-edit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-edit i {
+  font-size: 24px;
+  color: #111010;
+}
+
+body main .contacts-container .contacts-table .contact-row .contact-edit i:hover {
+  color: white;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+body main .contacts-container .contacts-table .selected-row {
+  background-color: #81c7e6;
+}
+
+body main .newContactModal, body main .updateContactModal {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0vh 3vh;
+  border: solid 3px #111010;
+  border-radius: 10px;
+  background-color: white;
+  max-width: 95%;
+  height: auto;
+  margin-bottom: 15px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 11vh;
+  z-index: 10;
+}
+
+body main .newContactModal .title-close, body main .updateContactModal .title-close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .newContactModal .title-close h4, body main .updateContactModal .title-close h4 {
+  font-weight: 500;
+  color: #111010;
+  margin-left: 10px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+body main .newContactModal .title-close .closebtn, body main .updateContactModal .title-close .closebtn {
+  font-size: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+body main .newContactModal .loginForm, body main .updateContactModal .loginForm {
+  width: 100%;
+}
+
+body main .newContactModal .loginForm .spin, body main .updateContactModal .loginForm .spin {
+  -webkit-animation: pulse 1.2s 3;
+          animation: pulse 1.2s 3;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: translate(65vw, -300px) scale(0.85);
+            transform: translate(65vw, -300px) scale(0.85);
+  }
+  50% {
+    -webkit-transform: translate(65vw, -300px) scale(1.15);
+            transform: translate(65vw, -300px) scale(1.15);
+  }
+  100% {
+    -webkit-transform: translate(65vw, -300px) scale(0.85);
+            transform: translate(65vw, -300px) scale(0.85);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: translate(65vw, -300px) scale(0.85);
+            transform: translate(65vw, -300px) scale(0.85);
+  }
+  50% {
+    -webkit-transform: translate(65vw, -300px) scale(1.15);
+            transform: translate(65vw, -300px) scale(1.15);
+  }
+  100% {
+    -webkit-transform: translate(65vw, -300px) scale(0.85);
+            transform: translate(65vw, -300px) scale(0.85);
+  }
+}
+
+body main .newContactModal .loginForm .required-data, body main .updateContactModal .loginForm .required-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  border: solid 3px #111010;
+  border-radius: 10px;
+  padding-top: 7px;
+  background-color: #C2E812;
+}
+
+body main .newContactModal .loginForm .required-data .form-group, body main .updateContactModal .loginForm .required-data .form-group {
+  width: 15vw;
+  color: #111010;
+  font-weight: 500;
+}
+
+body main .newContactModal .loginForm .required-data .form-group select, body main .updateContactModal .loginForm .required-data .form-group select, body main .newContactModal .loginForm .required-data .form-group input, body main .updateContactModal .loginForm .required-data .form-group input {
+  border: solid 2px #247BA0;
+  color: #111010;
+}
+
+body main .newContactModal .loginForm .required-data .form-group select, body main .updateContactModal .loginForm .required-data .form-group select {
+  cursor: pointer;
+}
+
+body main .newContactModal .loginForm .required-data .form-group .dropdown-toggle, body main .updateContactModal .loginForm .required-data .form-group .dropdown-toggle {
+  border: solid 2px #247BA0;
+  height: 38px;
+}
+
+body main .newContactModal .loginForm .required-data .form-group .dropdown-menu, body main .updateContactModal .loginForm .required-data .form-group .dropdown-menu {
+  border: solid 2px #247BA0;
+}
+
+body main .newContactModal .loginForm .required-data .form-group .inner, body main .updateContactModal .loginForm .required-data .form-group .inner {
+  border: none;
+}
+
+body main .newContactModal .loginForm .location-data, body main .updateContactModal .loginForm .location-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  padding-top: 10px;
+}
+
+body main .newContactModal .loginForm .location-data .form-group, body main .updateContactModal .loginForm .location-data .form-group {
+  width: 15vw;
+  font-weight: 500;
+}
+
+body main .newContactModal .loginForm .location-data .form-group .form-control-range, body main .updateContactModal .loginForm .location-data .form-group .form-control-range {
+  cursor: pointer;
+}
+
+body main .newContactModal .loginForm .location-data .form-group select, body main .updateContactModal .loginForm .location-data .form-group select, body main .newContactModal .loginForm .location-data .form-group input, body main .updateContactModal .loginForm .location-data .form-group input {
+  border: solid 2px #247BA0;
+  color: #111010;
+}
+
+body main .newContactModal .loginForm .location-data .form-group select, body main .updateContactModal .loginForm .location-data .form-group select {
+  cursor: pointer;
+}
+
+body main .newContactModal .loginForm .contact-channel-data, body main .updateContactModal .loginForm .contact-channel-data {
+  padding: 0px 15px 0px 25px;
+  width: 100%;
+}
+
+body main .newContactModal .loginForm .contact-channel-data .phone, body main .updateContactModal .loginForm .contact-channel-data .phone, body main .newContactModal .loginForm .contact-channel-data .whatsapp, body main .updateContactModal .loginForm .contact-channel-data .whatsapp, body main .newContactModal .loginForm .contact-channel-data .instagram, body main .updateContactModal .loginForm .contact-channel-data .instagram, body main .newContactModal .loginForm .contact-channel-data .facebook, body main .updateContactModal .loginForm .contact-channel-data .facebook, body main .newContactModal .loginForm .contact-channel-data .linkedin, body main .updateContactModal .loginForm .contact-channel-data .linkedin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 58%;
+}
+
+body main .newContactModal .loginForm .contact-channel-data .phone .form-group, body main .updateContactModal .loginForm .contact-channel-data .phone .form-group, body main .newContactModal .loginForm .contact-channel-data .whatsapp .form-group, body main .updateContactModal .loginForm .contact-channel-data .whatsapp .form-group, body main .newContactModal .loginForm .contact-channel-data .instagram .form-group, body main .updateContactModal .loginForm .contact-channel-data .instagram .form-group, body main .newContactModal .loginForm .contact-channel-data .facebook .form-group, body main .updateContactModal .loginForm .contact-channel-data .facebook .form-group, body main .newContactModal .loginForm .contact-channel-data .linkedin .form-group, body main .updateContactModal .loginForm .contact-channel-data .linkedin .form-group {
+  width: 15vw;
+  font-weight: 500;
+}
+
+body main .newContactModal .loginForm .contact-channel-data .phone .form-group .channel-title, body main .updateContactModal .loginForm .contact-channel-data .phone .form-group .channel-title, body main .newContactModal .loginForm .contact-channel-data .whatsapp .form-group .channel-title, body main .updateContactModal .loginForm .contact-channel-data .whatsapp .form-group .channel-title, body main .newContactModal .loginForm .contact-channel-data .instagram .form-group .channel-title, body main .updateContactModal .loginForm .contact-channel-data .instagram .form-group .channel-title, body main .newContactModal .loginForm .contact-channel-data .facebook .form-group .channel-title, body main .updateContactModal .loginForm .contact-channel-data .facebook .form-group .channel-title, body main .newContactModal .loginForm .contact-channel-data .linkedin .form-group .channel-title, body main .updateContactModal .loginForm .contact-channel-data .linkedin .form-group .channel-title {
+  color: #111010;
+  padding: 5px 0px 5px 30px;
+  border-bottom: solid 3px #247BA0;
+  border-left: solid 2px #247BA0;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #c1e812;
+}
+
+body main .newContactModal .loginForm .contact-channel-data .phone .form-group select, body main .updateContactModal .loginForm .contact-channel-data .phone .form-group select, body main .newContactModal .loginForm .contact-channel-data .whatsapp .form-group select, body main .updateContactModal .loginForm .contact-channel-data .whatsapp .form-group select, body main .newContactModal .loginForm .contact-channel-data .instagram .form-group select, body main .updateContactModal .loginForm .contact-channel-data .instagram .form-group select, body main .newContactModal .loginForm .contact-channel-data .facebook .form-group select, body main .updateContactModal .loginForm .contact-channel-data .facebook .form-group select, body main .newContactModal .loginForm .contact-channel-data .linkedin .form-group select, body main .updateContactModal .loginForm .contact-channel-data .linkedin .form-group select, body main .newContactModal .loginForm .contact-channel-data .phone .form-group input, body main .updateContactModal .loginForm .contact-channel-data .phone .form-group input, body main .newContactModal .loginForm .contact-channel-data .whatsapp .form-group input, body main .updateContactModal .loginForm .contact-channel-data .whatsapp .form-group input, body main .newContactModal .loginForm .contact-channel-data .instagram .form-group input, body main .updateContactModal .loginForm .contact-channel-data .instagram .form-group input, body main .newContactModal .loginForm .contact-channel-data .facebook .form-group input, body main .updateContactModal .loginForm .contact-channel-data .facebook .form-group input, body main .newContactModal .loginForm .contact-channel-data .linkedin .form-group input, body main .updateContactModal .loginForm .contact-channel-data .linkedin .form-group input {
+  border: solid 2px #247BA0;
+  color: #111010;
+}
+
+body main .newContactModal .loginForm .contact-channel-data .phone .form-group select, body main .updateContactModal .loginForm .contact-channel-data .phone .form-group select, body main .newContactModal .loginForm .contact-channel-data .whatsapp .form-group select, body main .updateContactModal .loginForm .contact-channel-data .whatsapp .form-group select, body main .newContactModal .loginForm .contact-channel-data .instagram .form-group select, body main .updateContactModal .loginForm .contact-channel-data .instagram .form-group select, body main .newContactModal .loginForm .contact-channel-data .facebook .form-group select, body main .updateContactModal .loginForm .contact-channel-data .facebook .form-group select, body main .newContactModal .loginForm .contact-channel-data .linkedin .form-group select, body main .updateContactModal .loginForm .contact-channel-data .linkedin .form-group select {
+  cursor: pointer;
+  background-color: #C2E812;
+  border: none;
+  border-radius: unset;
+  border-top: solid 3px #247BA0;
+  border-right: solid 2px #247BA0;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+body main .newContactModal .loginForm .profile-image, body main .updateContactModal .loginForm .profile-image {
+  position: absolute;
+  height: 200px;
+  -webkit-transform: translate(65vw, -300px);
+          transform: translate(65vw, -300px);
+}
+
+body main .newContactModal .loginForm #btnSubmit, body main .updateContactModal .loginForm #btnSubmit, body main .newContactModal .loginForm .updateContactModal #updatebtnSubmit, body main .updateContactModal .loginForm #updatebtnSubmit {
+  color: white;
+  background-color: #247BA0;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 22px;
+  position: absolute;
+  width: 36vw;
+  height: 60px;
+  -webkit-transform: translate(55.2vw, -75px);
+          transform: translate(55.2vw, -75px);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+body main .newContactModal .loginForm #btnSubmit:hover, body main .updateContactModal .loginForm #btnSubmit:hover, body main .newContactModal .loginForm .updateContactModal #updatebtnSubmit:hover, body main .updateContactModal .loginForm #updatebtnSubmit:hover {
+  color: white;
+  background-color: #247BA0;
+}
+
+body main .newContactModal .loginForm #btnSubmit:hover, body main .updateContactModal .loginForm #btnSubmit:hover, body main .newContactModal .loginForm .updateContactModal #updatebtnSubmit:hover, body main .updateContactModal .loginForm #updatebtnSubmit:hover {
+  background-color: #111010;
+  color: #C2E812;
+  font-size: 26px;
+}
+
+body main .newContactModal .loginForm .errorsContainer, body main .updateContactModal .loginForm .errorsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body main .newContactModal .loginForm .errorsContainer small, body main .updateContactModal .loginForm .errorsContainer small {
+  color: red;
+  font-weight: 700;
+}
+
+body main #deleteModal .modal-header {
+  background-color: #C2E812;
+  color: #111010;
+}
+
+body main #deleteModal .modal-footer .btn-secondary {
+  color: #111010;
+  background-color: #C2E812;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: solid 1px #111010;
+  text-transform: none;
+}
+
+body main #deleteModal .modal-footer .btn-secondary:hover {
+  color: #111010;
+  background-color: #247BA0;
+}
+
+body main #deleteModal .modal-footer .btn-secondary:hover {
+  color: white;
+  background-color: #111010;
+}
+
+body main #deleteModal .modal-footer .btn-primary {
+  color: #111010;
+  background-color: #ff6f00;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+  border: solid 1px #111010;
+  text-transform: none;
+}
+
+body main #deleteModal .modal-footer .btn-primary:hover {
+  color: #111010;
+  background-color: #247BA0;
+}
+
+body main #deleteModal .modal-footer .btn-primary:hover {
+  color: white;
+  background-color: red;
+}
+/*# sourceMappingURL=contactos.css.map */

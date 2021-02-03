@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!--Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/usuarios.css">
+</head>
+<body>
+    <nav class="navbar" id="nav">
+        <a class="navbar-brand" href="./home.html">
+            <i class="fas fa-rainbow"></i>
+        </a>
+        <p id="welcome"></p>
+        <div class="burger">
+            <input type="checkbox" id="check" hidden>
+            <label for="check" >
+                <i class="fas fa-bars" id="burger"></i>
+            </label>
+        </div>
+        <div class="rigth-nav" id="rigth-nav">
+            <ul class="nav-ul">
+                <li class="nav-li">
+                    <a href="./contactos.html">Contactos</a>
+                </li>
+                <li class="nav-li">
+                    <a href="./usuarios.html" class="linkActive">Usuarios</a>
+                </li>
+                <li class="nav-li">
+                    <a href="./companias.html">Compañías</a>
+                </li>
+                <li class="nav-li">
+                    <a href="./regiones.html">Región/Ciudad</a>
+                </li>
+            </ul>
+            <div>
+                <button class="btn btn-primary" type="submit" id="logOut">Sign out</button>
+            </div>
+        </div>
+    </nav>
+    <main>
+
+
+        <section class="first">
+            <div class="users-container">
+                <i class="fas fa-rainbow"></i>
+                <h1 class="title-lista">Usuarios</h1>
+                <div class="table-fields">
+                    <div class="field">Nombre</div>
+                    <div class="field">Apellido</div>
+                    <div class="field">Email</div>
+                    <div class="field">Perfil</div>
+                    <div class="field">Editar/Borrar</div>
+                </div>
+                <div class="users-table" id="users-table">
+                    <!--Contenido creado desde JS-->
+                </div>
+            </div>
+            <!--Modal de update de usuario-->
+            <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">ACTUALIZAR USUARIO</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group" >
+                                <input type="text" class="form-control" id="update_name" name="name" placeholder="Name" required>
+                            </div> 
+                            <div class="form-group" >    
+                                <input type="text" class="form-control" id="update_lastname" name="lastname" placeholder="Lastname" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="update_email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" name="profile" id="update_profile" placeholder= "asd">
+                                    <option value="Admin" selected>Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="updateOk">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de confirmacion de borrado de usuario -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">ELIMINAR USUARIO</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" ></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="deleteOk">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#second" ><i class="fas fa-arrow-down"></i></a>
+        </section>
+
+        <section class="second">
+            <a href="#nav" id="second"><i class="fas fa-arrow-up"></i></a>
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                Aquí se crearan los usuarios <strong>(empleados de la compañía)</strong> que podrán utilizar la app.<br>
+                Un Admin puede realizar todo, un User puede realizar todo excepto crear usuarios nuevos.<br><br>
+                En la sección de arriba <i class="fas fa-arrow-up"></i> podrás ver, editar o eliminar cualquier usuario.
+            </div>
+            <div class="center-alert">
+                <div class="alert alertCreation" id="alertCreation">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    Nuevo usuario registrado con exito!!
+                </div>
+            </div>
+            <div class="container" >
+                <i class="fas fa-rainbow"></i>
+                <h2>Nuevo usuario</h2>
+                <form class="loginForm">
+                    <div class="form-group" >
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                    </div> 
+                    <div class="form-group" >    
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="profile" id="profile" >
+                            <option value="Admin" selected>Admin</option>
+                            <option value="User">User</option>
+                        </select>
+                    </div>
+                    <div class="form-group" >
+                        <div class="password-visibility">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Nueva contraseña" required>
+                            <input type="checkbox"  class="box" id="ver" hidden>
+                            <label for="ver" class="box"><i class="fas fa-eye-slash" id="eye"></i></label>
+                        </div>
+                        <small id="helpPassword">La contraseña debe tener al menos 8 caracteres</small>
+                    </div>
+                    <div class="form-group" >
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Repita contraseña" required>
+                    </div>
+                    <div class="errorsContainer">
+                        <small id="errors"></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnSubmit">Registrar</button>
+                </form>
+            </div>
+
+        </section>
+
+
+
+
+    </main>
+
+<!--Script para asegurar que el usuario esta logueado-->
+<script src="./scripts/home.js" type="module"></script>
+<!--Script particualar de la seccion-->
+<script src="./scripts/usuarios.js" type="module"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>      
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- SELECTS CON BUSQUEDA -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <!--Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/companias.css">
+</head>
+<body>
+    <nav class="navbar" id="nav">
+        <a class="navbar-brand" href="./home.html">
+            <i class="fas fa-rainbow"></i>
+        </a>
+        <p id="welcome"></p>
+        <div class="burger">
+            <input type="checkbox" id="check" hidden>
+            <label for="check" >
+                <i class="fas fa-bars" id="burger"></i>
+            </label>
+        </div>
+        <div class="rigth-nav" id="rigth-nav">
+            <ul class="nav-ul" id="ul">
+                <li class="nav-li">
+                    <a href="./contactos.html">Contactos</a>
+                </li>
+                <li class="nav-li">
+                    <a href="./usuarios.html" id="usuariosLi">Usuarios</a>
+                </li>
+                <li class="nav-li">
+                    <a href="./companias.html" class="linkActive">Compañías</a>
+                </li>
+                <li class="nav-li">
+                    <a href="./regiones.html" >Región/Ciudad</a>
+                </li>
+            </ul>
+            <div>
+                <button class="btn btn-primary" type="submit" id="logOut">Sign out</button>
+            </div>
+        </div>
+    </nav>
+    <main>
+
+        
+        <section class="companies">
+            <div class="companies-container">
+                <i class="fas fa-rainbow"></i>
+                <h1 class="table-title">Compañias</h1>
+                <div class="table-fields">
+                    <div class="field">Nombre</div>
+                    <div class="field">Dirección</div>
+                    <div class="field">Email</div>
+                    <div class="field">Telefono</div>
+                    <div class="field">Ciudad</div>
+                    <div class="field">Editar/Borrar</div>
+                </div>
+                <div class="companies-table" id="companies-table">
+                    <!--Contenido creado desde JS-->
+
+                </div>
+            </div>
+            <!--Modal de update de company-->
+            <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">ACTUALIZAR COMPAÑIA</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group" >
+                                <input type="text" class="form-control" id="update_name" name="name" placeholder="Nombre" required>
+                            </div> 
+                            <div class="form-group" >    
+                                <input type="text" class="form-control" id="update_address" name="address" placeholder="Dirección" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="update_email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="update_phone" name="email" placeholder="Telefono" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control selectpicker" data-show-subtext="true" data-live-search="true" data-size="5" name="city" id="update_city">
+                                    <option selected disabled>Busque una ciudad</option>
+                                    <option id="selectedValue" selected></option>
+
+                                </select>   
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="update-alert" id="update-alert"></p>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="updateOk">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal de confirmacion de borrado de company-->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">ELIMINAR COMPAÑIA</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" ></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="deleteOk">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#second" ><i class="fas fa-arrow-down"></i></a>
+        </section>
+
+        <section class="create-company">
+            <a href="#nav" id="second"><i class="fas fa-arrow-up"></i></a>
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                Aquí se crearán las compañias que luego seran utilizadas para cargar la informacion
+                de los nuevos contactos.<br>
+                Tenga en cuenta que si no encuentra la <strong>ciudad</strong> donde esta ubicada la nueva <strong>compañia</strong>,
+                deberás cargarla primero en la seccion <a href="./regiones.html"><strong>Región/Ciudad</strong></a>.<br>
+                En la seccion de arriba <i class="fas fa-arrow-up"></i> podrás ver, editar o eliminar cualquier compañia.
+            </div>
+            
+            <div class="center-alert">
+                <div class="alert alertCreation" id="alertCreation">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    Nuevo usuario registrado con exito!!
+                </div>
+            </div>
+
+            <div class="container" >
+                <i class="fas fa-rainbow"></i>
+                <h2>Nueva compañia</h2>
+                <form class="loginForm">
+                    <div class="form-group" >
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                    </div> 
+                    <div class="form-group" >    
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Dirección" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control"  id="phone" name="phone" placeholder= "Telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control selectpicker" data-show-subtext="true" data-live-search="true" data-size="5" name="city" id="update_city">
+                            <option selected disabled>Busque una ciudad</option>
+                        </select>   
+                    </div>
+                    <div class="errorsContainer">
+                        <small id="errors"></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnSubmit">Registrar compañia</button>
+                </form>
+            </div>
+            
+        </section>
+
+
+    </main>
+<!--Script para asegurar que el usuario esta logueado-->
+<script src="./scripts/home.js" type="module"></script>
+<!--Script particualar de la seccion-->
+<script src="./scripts/companies.js" type="module"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>  
+<!-- SELECT CON BUSCADOR -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>    
+</body>
+</html>

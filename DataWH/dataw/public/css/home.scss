@@ -1,0 +1,159 @@
+@import 'colors.scss';
+@import 'fonts.scss';
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: $font;
+}
+
+//Estilo de botones
+@mixin button($color,$bckColor){
+
+    color: $color;
+    background-color: $bckColor;
+    border: none;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    &:hover{
+        color: $color;
+        background-color: $lightBlue;
+    }
+}
+
+body{
+    
+    background-color: $yellow;
+
+    .navbar{
+        display: flex;
+        align-content: center;
+        background: $black;
+        height: 10vh;
+        border-bottom: solid 5px $lightBlue;
+
+        .burger {
+            display: none;
+            
+            @media screen and (max-width: 1020px) {
+                display: unset;
+                color: white;
+                i{
+                    cursor: pointer;
+                }
+            }
+        }
+        .navbar-brand {
+            color: white;
+            font-size: 40px;
+        }
+        #welcome {
+            color: $yellow;
+            margin-top: 2.5vh;
+        }
+        .rigth-nav{
+            display: flex;
+            align-items: center;
+            
+            @media screen and (max-width: 1020px) {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin-top: 10vh;
+                width: 50%;
+                height: 90vh;
+                background-color: $black;
+                border-left: solid 3px $lightBlue ;
+            }
+
+            .nav-ul{
+
+                display: flex;
+                justify-content: space-between;
+                width: 50vw;
+                margin-top: 2.5vh;
+                margin-right:4vw;
+                list-style: none;
+
+                @media screen and (max-width: 1020px) {
+
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    height: 30%;
+                    margin-top: 10vh;
+                    margin-bottom: 10vh;
+                    margin-right:0;
+                }
+
+                a{
+                    text-decoration: none;
+                    color: white;
+
+                    &:hover{
+                        color: $yellow;
+                        transition: 0.25s ease-in;
+                    }
+                }
+            }
+
+            .btn{
+                @include button($yellow,$black);
+                text-transform: none;
+                border: solid 1px $yellow;
+            }
+        }
+
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        margin-top: 10vh;
+        color: white;
+        background: $black;
+        border: solid 5px $black;
+        border-radius: 10px;
+        width: 70vw;
+        height: 70vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scroll-padding: 50px 0 0 50px;
+        
+        
+        &::-webkit-scrollbar{
+            width: 0.7em;
+            cursor: pointer;
+            height: 30px;
+        }
+
+
+        &::-webkit-scrollbar-thumb {
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: $lightBlue;
+        }
+        &::-webkit-scrollbar-track {
+            border: 14px solid white;
+            border-radius: 53px;
+        }
+
+        .informacion{
+            margin-top: auto;
+            padding: 2vw;
+
+            .underlined{
+                color: $yellow;
+                margin-left: -20px;
+                text-decoration: underline;
+            }
+
+            li{
+                padding: 10px 0;
+            }
+        }
+    }
+}
+
